@@ -14,7 +14,6 @@ public class WordFrequencyGame {
 
             try {
 
-                //split the input string with 1 to n pieces of spaces
                 List<Input> inputList = convertToWordFrequencyList(inputStr);
 
                 //get the map for the next step of sizing the same word
