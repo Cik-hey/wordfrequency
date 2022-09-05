@@ -1,10 +1,13 @@
 import java.util.*;
 
 public class WordFrequencyGame {
+
+    public static final int INIT_COUNT = 1;
+
     public String getResult(String inputStr){
 
 
-        if (inputStr.split("\\s+").length==1) {
+        if (inputStr.split("\\s+").length== INIT_COUNT) {
             return inputStr + " 1";
         } else {
 
@@ -15,7 +18,7 @@ public class WordFrequencyGame {
 
                 List<Input> inputList = new ArrayList<>();
                 for (String s : arr) {
-                    Input input = new Input(s, 1);
+                    Input input = new Input(s, INIT_COUNT);
                     inputList.add(input);
                 }
 
