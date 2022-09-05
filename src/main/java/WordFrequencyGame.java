@@ -5,16 +5,16 @@ public class WordFrequencyGame {
 
     public static final int INIT_COUNT = 1;
 
-    public String getResult(String inputStr){
+    public String getResult(String inputString){
 
 
-        if (splitInput(inputStr).length== INIT_COUNT) {
-            return inputStr + " 1";
+        if (splitInput(inputString).length== INIT_COUNT) {
+            return inputString + " 1";
         } else {
 
             try {
 
-                List<Input> inputList = convertToWordFrequencyList(inputStr);
+                List<Input> inputList = convertToWordFrequencyList(inputString);
 
                 //get the map for the next step of sizing the same word
                 Map<String, List<Input>> map =getListMap(inputList);
