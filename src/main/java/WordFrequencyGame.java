@@ -19,20 +19,7 @@ public class WordFrequencyGame {
                 //get the map for the next step of sizing the same word
                 Map<String, List<Input>> map =getListMap(inputList);
 
-                List<Input> list = new ArrayList<>();
-                for (Map.Entry<String, List<Input>> entry : map.entrySet()){
-                    Input input = new Input(entry.getKey(), entry.getValue().size());
-                    list.add(input);
-                }
-                inputList = list;
-
-                inputList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
-
-                StringJoiner joiner = new StringJoiner("\n");
-                for (Input word : inputList) {
-                    String string = word.getValue() + " " +word.getWordCount();
-                    joiner.add(string);
-                }
+                StringJoiner joiner = getStringJoiner(map);
                 return joiner.toString();
             } catch (Exception e) {
 
@@ -40,6 +27,25 @@ public class WordFrequencyGame {
                 return "Calculate Error";
             }
         }
+    }
+
+    private StringJoiner getStringJoiner(Map<String, List<Input>> map) {
+        List<Input> inputList;
+        List<Input> list = new ArrayList<>();
+        for (Map.Entry<String, List<Input>> entry : map.entrySet()){
+            Input input = new Input(entry.getKey(), entry.getValue().size());
+            list.add(input);
+        }
+        inputList = list;
+
+        inputList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
+
+        StringJoiner joiner = new StringJoiner("\n");
+        for (Input word : inputList) {
+            String string = word.getValue() + " " +word.getWordCount();
+            joiner.add(string);
+        }
+        return joiner;
     }
 
     private List<Input> convertToWordFrequencyList(String inputStr) {
