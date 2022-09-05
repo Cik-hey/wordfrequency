@@ -2,18 +2,12 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class WordFrequencyGame {
-
     public static final int INIT_COUNT = 1;
-
     public String getResult(String inputString){
-
-
         if (splitInput(inputString).length== INIT_COUNT) {
             return inputString + " 1";
         } else {
-
             try {
-
                 List<Input> inputList = convertToWordFrequencyList(inputString);
 
                 //get the map for the next step of sizing the same word
@@ -28,7 +22,6 @@ public class WordFrequencyGame {
             }
         }
     }
-
     private StringJoiner getStringJoiner(Map<String, List<Input>> map) {
         List<Input> inputList;
         List<Input> list = new ArrayList<>();
@@ -47,7 +40,6 @@ public class WordFrequencyGame {
         }
         return joiner;
     }
-
     private List<Input> convertToWordFrequencyList(String inputStr) {
         String[] inputWords = splitInput(inputStr);
 
@@ -55,12 +47,9 @@ public class WordFrequencyGame {
                 .map(word -> new Input(word, INIT_COUNT))
                 .collect(Collectors.toList());
     }
-
     private String[] splitInput(String inputStr) {
         return inputStr.split("\\s+");
     }
-
-
     private Map<String,List<Input>> getListMap(List<Input> inputList) {
         Map<String, List<Input>> mappedList = new HashMap<>();
         inputList.forEach(eachListValue -> {
@@ -74,6 +63,4 @@ public class WordFrequencyGame {
         newInputList.add(eachInputList);
         mappedList.put(eachInputList.getValue(), newInputList);
     }
-
-
 }
