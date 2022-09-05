@@ -7,14 +7,14 @@ public class WordFrequencyGame {
     public String getResult(String inputStr){
 
 
-        if (inputStr.split("\\s+").length== INIT_COUNT) {
+        if (splitInput(inputStr).length== INIT_COUNT) {
             return inputStr + " 1";
         } else {
 
             try {
 
                 //split the input string with 1 to n pieces of spaces
-                String[] inputWords = inputStr.split("\\s+");
+                String[] inputWords = splitInput(inputStr);
 
                 List<Input> inputList = new ArrayList<>();
                 for (String s : inputWords) {
@@ -46,6 +46,10 @@ public class WordFrequencyGame {
                 return "Calculate Error";
             }
         }
+    }
+
+    private String[] splitInput(String inputStr) {
+        return inputStr.split("\\s+");
     }
 
 
