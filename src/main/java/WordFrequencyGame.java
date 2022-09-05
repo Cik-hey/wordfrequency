@@ -16,8 +16,6 @@ public class WordFrequencyGame {
                 StringJoiner joiner = getStringJoiner(map);
                 return joiner.toString();
             } catch (Exception e) {
-
-
                 return "Calculate Error";
             }
         }
