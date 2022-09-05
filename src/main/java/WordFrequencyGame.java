@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class WordFrequencyGame {
 
@@ -45,12 +46,9 @@ public class WordFrequencyGame {
     private List<Input> convertToWordFrequencyList(String inputStr) {
         String[] inputWords = splitInput(inputStr);
 
-        List<Input> inputList = new ArrayList<>();
-        for (String s : inputWords) {
-            Input input = new Input(s, INIT_COUNT);
-            inputList.add(input);
-        }
-        return inputList;
+        return Arrays.asList(inputWords).stream()
+                .map(word -> new Input(word, INIT_COUNT))
+                .collect(Collectors.toList());
     }
 
     private String[] splitInput(String inputStr) {
